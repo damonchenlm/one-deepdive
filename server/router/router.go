@@ -1,8 +1,9 @@
 package router
 
 import (
-	"github.com/gin-gonic/gin"
 	"server/handler"
+
+	"github.com/gin-gonic/gin"
 )
 
 func CORSMiddleware() gin.HandlerFunc {
@@ -26,5 +27,8 @@ func SetupRouter() *gin.Engine {
 	router.Use(CORSMiddleware())
 
 	router.GET("/news/getAllNews", handler.GetAllNews)
+	router.GET("/ping", func(c *gin.Context) {
+		c.JSON(200, "pong")
+	})
 	return router
 }

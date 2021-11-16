@@ -1,11 +1,12 @@
 package main
 
 import (
-	"gorm.io/driver/mysql"
-	"gorm.io/gorm"
 	"server/global"
 	"server/model"
 	"server/router"
+
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
 )
 
 func main() {
@@ -19,5 +20,5 @@ func main() {
 	_ = global.DB.AutoMigrate(&model.News{})
 
 	engine := router.SetupRouter()
-	_ = engine.Run("localhost:8081")
+	_ = engine.Run("0.0.0.0:8081")
 }
