@@ -2,7 +2,7 @@ package main
 
 import (
 	"server/global"
-	"server/model"
+	"server/models"
 	"server/router"
 
 	"gorm.io/driver/mysql"
@@ -17,7 +17,7 @@ func main() {
 	if err != nil {
 		panic("failed to connect database")
 	}
-	_ = global.DB.AutoMigrate(&model.News{})
+	_ = global.DB.AutoMigrate(&models.News{})
 
 	engine := router.SetupRouter()
 	_ = engine.Run("0.0.0.0:8081")
