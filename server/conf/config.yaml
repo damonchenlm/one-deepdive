@@ -1,0 +1,11 @@
+name: "one-deepdive"
+host: "0.0.0.0"
+port: 8081
+logsAddress: "./logs/"
+
+mysql:
+  name: "damon"
+  host: "rm-bp1z6653s2t65e4774o.mysql.rds.aliyuncs.com"
+  port: 3306
+  password: "Cyl851106"
+  dbName: "one_deepdive"
