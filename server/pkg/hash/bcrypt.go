@@ -3,12 +3,12 @@ package hash
 import "golang.org/x/crypto/bcrypt"
 
 type Bcrypt struct {
-	cost int
+	Cost int
 }
 
 //Make 加密方法
 func (b *Bcrypt) Make(password []byte) ([]byte, error) {
-	return bcrypt.GenerateFromPassword(password, b.cost)
+	return bcrypt.GenerateFromPassword(password, b.Cost)
 }
 
 //Check 检查方法
