@@ -51,7 +51,7 @@ func LoginHandle(c *gin.Context) (interface{}, error) {
 		Password: request.Password,
 	}
 	service := user.Service{}
-	err = service.Login(userDto)
+	token, err := service.Login(userDto)
 	if err != nil {
 		return nil, e.ApiError{
 			Status:  422,
@@ -59,5 +59,5 @@ func LoginHandle(c *gin.Context) (interface{}, error) {
 			Message: err.Error(),
 		}
 	}
-	return "登陆成功", nil
+	return token, nil
 }
