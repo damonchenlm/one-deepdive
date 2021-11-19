@@ -2,6 +2,7 @@ package router
 
 import (
 	"server/api"
+	"server/pkg/e"
 
 	"github.com/gin-gonic/gin"
 )
@@ -30,5 +31,10 @@ func SetupRouter() *gin.Engine {
 	router.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, "pong")
 	})
+
+	// user
+	router.POST("/register", e.ErrorWrapper(api.RegisterHandle))
+	router.POST("/login", e.ErrorWrapper(api.LoginHandle))
+
 	return router
 }

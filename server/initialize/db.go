@@ -21,4 +21,5 @@ func InitDB() {
 		panic("failed to connect database")
 	}
 	_ = global.DB.AutoMigrate(&models.News{})
+	_ = global.DB.AutoMigrate(&models.User{})
 }
